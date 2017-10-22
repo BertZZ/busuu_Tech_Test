@@ -21,6 +21,7 @@ class LevelAssessmentService implements LevelAssessmentServiceInterface
     {
       /** Evaluate exercises function
       */
+        $this->evaluateExercises($exercises);
         $length = count($exercises);
         if($length < $this->minimumNumberOfExercises) {
           return false;
@@ -33,19 +34,18 @@ class LevelAssessmentService implements LevelAssessmentServiceInterface
     {
       foreach($exercises as $exercise){
         $this->countExercises();
+        // $this->changeLevel();
         if($exercise->isPassed()){
           ++$this->points;
           }
+          $this->changeLevel();
         }
-        $this->changeLevel();
       }
 
     public function countExercises()
     {
       if ($this->numberOfExercises == 3) {
         $this->numberOfExercises = 0;
-        $this->points = 0;
-        ++$this->numberOfExercises;
       } else {
       ++$this->numberOfExercises;
       }
@@ -56,20 +56,22 @@ class LevelAssessmentService implements LevelAssessmentServiceInterface
   {
 
     if ($this->numberOfExercises == 3) {
-      if($this->points == 0 && $this->currentLevel >= 0){
+      if($this->points == 0 && $this->currentLevel > 0){
         --$this->currentLevel;
-
-      } elseif ($this->points == 2 && $this->currentLevel <= 4 ) {
+        $this->points = 0;
+        echo "running Minus";
+      } elseif ($this->points == 2 ) {
         ++$this->currentLevel;
-
-      } elseif ($this->points == 3 && $this->currentLevel <= 3) {
+        $this->points = 0;
+        echo "Running Plus";
+      } elseif ($this->points == 3 && $this->currentLevel < 4) {
         $this->currentLevel = $this->currentLevel + 2;
-
-      } elseif ($this->points == 3 && $this->currentLevel = 4) {
-        ++$this->currentLevel;
-
+        $this->points = 0;
+        echo "running plus 2";
       } else {
         $this->currentLevel;
+        $this->points = 0;
+        echo "Same";
       }
     }
   }

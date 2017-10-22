@@ -38,6 +38,7 @@ class AdditionalTests extends TestCase
     $this->assertEquals(2, $level);
   }
 
+
   private function exercisesDataProviderSet1(): array
   {
       return [
@@ -50,6 +51,18 @@ class AdditionalTests extends TestCase
   private function exercisesDataProviderSet2(): array
 {
     return [
+        (new Exercise())->setPassed(true),
+        (new Exercise())->setPassed(true),
+        (new Exercise())->setPassed(true),
+        (new Exercise())->setPassed(true),
+    ];
+  }
+
+  private function exercisesDataProviderSet3(): array
+{
+    return [
+        (new Exercise())->setPassed(true),
+        (new Exercise())->setPassed(true),
         (new Exercise())->setPassed(true),
         (new Exercise())->setPassed(true),
         (new Exercise())->setPassed(true),
