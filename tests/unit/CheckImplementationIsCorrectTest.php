@@ -44,6 +44,7 @@ class CheckImplementationIsCorrectTest extends TestCase
         $placementTestService = new LevelAssessmentService();
 
         $result = $placementTestService->calculateLevel($this->exercisesDataProviderSet3());
+
         $this->assertEquals('C2', $result);
     }
 
@@ -55,7 +56,7 @@ class CheckImplementationIsCorrectTest extends TestCase
         $placementTestService = new LevelAssessmentService();
 
         $result = $placementTestService->calculateLevel($this->exercisesDataProviderSet4());
-        echo $placementTestService->currentLevel;
+
         $this->assertEquals('A1', $result);
     }
 
