@@ -36,7 +36,6 @@ class LevelAssessmentService implements LevelAssessmentServiceInterface
         }
           $this->countExercises();
           $this->changeLevel();
-          $this->addLevelToHistory();
         }
       }
 
@@ -62,10 +61,10 @@ class LevelAssessmentService implements LevelAssessmentServiceInterface
       } elseif ($this->points == 3 && $this->currentLevel < 4) {
         $this->currentLevel = $this->currentLevel + 2;
         $this->points = 0;
-      } elseif ($this->points == 1) {
-        $this->points = 0;
       } elseif ($this->points == 3 && $this->currentLevel = 4) {
         $this->currentLevel++;
+        $this->points = 0;
+      } else {
         $this->points = 0;
       }
     }

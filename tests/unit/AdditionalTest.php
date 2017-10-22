@@ -30,27 +30,5 @@ class AdditionalTests extends TestCase
           (new Exercise())->setPassed(true),
       ];
   }
-
-  private function exercisesDataProviderSet2(): array
-{
-    return [
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-    ];
-  }
-
-  private function exercisesDataProviderSet3(): array
-{
-    return [
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-        (new Exercise())->setPassed(true),
-    ];
-  }
 }
 ?>
